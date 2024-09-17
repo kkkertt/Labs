@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab_1</title>
+    <script type="text/javascript">
+    function calculateLogSeries(x, terms) {
+    if (Math.abs(x) <= 1) {
+    return "Ошибка: |x| должно быть больше 1";
+    }
+
+    let sum = 0;
+    for (let n = 0; n < terms; n++) {
+    sum += 1 / ((2 * n + 1) * Math.pow(x, 2 * n + 1));
+    }
+
+    return 2 * sum;
+    }
+
+    function calculate() {
+    var x = Number(document.forms["form"].elements["x"].value);
+    var terms = Number(document.forms["form"].elements["terms"].value);
+    var result = calculateLogSeries(x, terms);
+    document.write("Результат: " + result);
+    }
+    </script>
+</head>
+    <body>
+        <h1>Вычисление ln((x+1)/(x-1))</h1>
+            <section>
+                <div class="container">
+                <form id="form">
+                <input id="x" type="text" name="x" placeholder="Введите x (|x| > 1)">
+                <input id="terms" type="text" name="terms" placeholder="Введите количество итераций">
+                <input class="button" onclick="calculate()" type="submit" value="Рассчитать">
+                </form>
+                </div>
+            </section>
+    </body>
+</html>
